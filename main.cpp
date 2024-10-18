@@ -4,32 +4,36 @@
 #include <iostream>
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20; // Constants for potential use in other parts of the program.
 
+// DoublyLinkedList class
 class DoublyLinkedList {
 private:
-    struct Node {
+    struct Node { // Node structure representing a single node in the list.
         int data;
         Node* prev;
         Node* next;
         
+        //  Constructor initializing a new node.
         Node(int val, Node* p = nullptr, Node* n = nullptr)
             : data(val), prev(p), next(n) {}
     };
 
-    Node* head;
-    Node* tail;
+    Node* head; // pointer to the first node
+    Node* tail; // pointer to the last node
 
 public:
+    // Constructor for initializing an empty list.
     DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
+    // method to insert a new node
     void insert_after(int value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
-            return;
+            return; // if not exit the method
         }
 
-        Node* newNode = new Node(value);
+        Node* newNode = new Node(value); // Create a new node with the given value.
         
         // If the list is empty
         if (!head) {
@@ -51,15 +55,19 @@ public:
         }
 
         // Insert the new node
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
+        newNode->next = temp->next; // new node's next to the current node's 
+        
+        newNode->prev = temp; // new node's previous to current node.
+        
+        if (temp->next) // If current node has a next node.
             temp->next->prev = newNode;
         else
-            tail = newNode;
-        temp->next = newNode;
+            tail = newNode; // Update if we're adding at the end.
+        
+        temp->next = newNode; // Link current node next to the new node
     }
 
+    // method to delete fir
     void delete_val(int value) {
         if (!head) return;
 
