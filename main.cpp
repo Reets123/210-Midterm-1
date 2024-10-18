@@ -239,11 +239,11 @@ public:
         Node* current = head;
         bool skip = false; // to indicate whether to skip or not.
 
-        while (currrent) {
+        while (current) {
             if (!skip) { // If we are not skipping.
                 cout << current->data << " "; // Print the current data.
             }
-            skip = !skips; // Toggle the skip variable.
+            skip = !skip; // Toggle the skip variable.
             current = current->next; // Move to the next node.
         }
 
