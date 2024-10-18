@@ -236,14 +236,25 @@ public:
 
     // method to print every other element of the list.
     void every_other_element() {
-        Node* current =
+        Node* current = head;
+        bool skip = false; // to indicate whether to skip or not.
+
+        while (currrent) {
+            if (!skip) { // If we are not skipping.
+                cout << current->data << " "; // Print the current data.
+            }
+            skip = !skips; // Toggle the skip variable.
+            current = current->next; // Move to the next node.
+        }
+
+        cout << endl; // Print a newline after outputting the elements.
 
     }
-
 };
 
+// main function
 int main() {
-    cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS; // Dummy statement to avoid compiler warning
+    
     
     return 0;
 }
