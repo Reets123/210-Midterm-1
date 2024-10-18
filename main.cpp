@@ -1,6 +1,34 @@
 // Midterm #1
 // COMSC-210 - Ibrahim Alatig 
 
+//       DoublyLinkedList            
+//---------------------------
+// - head: Node*                       
+// - tail: Node*                       
+//-------------------------
+// + DoublyLinkedList()                
+// + insert_after(value: int,          
+// + position: int): void              
+// + delete_val(value: int): void      
+// + delete_pos(pos: int): void        
+// + push_back(value: int): void 
+// + pop_front(): void                 
+// + pop_back(): void                  
+// + print(): void                     
+// + print_reverse(): void             
+// + every_other_element(): void        
+// + ~DoublyLinkedList()   
+
+//      Node
+//------------------
+// - data: int              
+// - prev: Node*           
+// - next: Node*           
+//---------------
+// + Node(value: int,       
+// +  p: Node* = nullptr,    
+// +  n: Node* = nullptr)    
+
 #include <iostream>
 using namespace std;
 
