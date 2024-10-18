@@ -67,9 +67,9 @@ public:
         temp->next = newNode; // Link current node next to the new node
     }
 
-    // method to delete fir
+    // method to delete first value in the list
     void delete_val(int value) {
-        if (!head) return;
+        if (!head) return; // if list empty exit
 
         Node* temp = head;
         // Search for the value to delete
@@ -85,27 +85,30 @@ public:
         else
             head = temp->next;
 
+        // Adjust connections to remove the found node.
         if (temp->next)
             temp->next->prev = temp->prev;
         else
             tail = temp->prev;
 
-        delete temp;
+        delete temp;  // Free memory of removed node.
     }
 
+    // method to delte a node
     void delete_pos(int pos) {
         if (!head) {
             cout << "List is empty." << endl;
             return;
         }
 
-        if (pos == 1) {
+        if (pos == 1) { // If we need to delete the first position.
             pop_front();
             return;
         }
 
-        Node* temp = head;
-        for (int i = 1; i < pos; i++) {
+        Node* temp = head; // start from head
+        
+        for (int i = 1; i < pos; i++) { // find the node at position
             if (!temp) {
                 cout << "Position doesn't exist." << endl;
                 return;
@@ -119,6 +122,7 @@ public:
             return;
         }
         
+        // Adjust connections to remove the node
         if (!temp->next) {
             pop_back();
             return;
@@ -131,6 +135,7 @@ public:
         delete temp;
     }
 
+    // Method to add a node at the end of the list.
     void push_back(int v) {
         Node* newNode = new Node(v);
         if (!tail) {
@@ -142,6 +147,7 @@ public:
         }
     }
 
+    // method to add node at beginning 
     void push_front(int v) {
         Node* newNode = new Node(v);
         if (!head) {
@@ -153,13 +159,15 @@ public:
         }
     }
 
+    // method to remove first node
     void pop_front() {
         if (!head) {
             cout << "List is empty." << endl;
             return;
         }
 
-        Node* temp = head;
+        Node* temp = head;// Temporarily hold the current head.
+        
         if (head->next) {
             head = head->next;
             head->prev = nullptr;
@@ -169,6 +177,7 @@ public:
         delete temp;
     }
 
+    // Method to remove the last node in the list.
     void pop_back() {
         if (!tail) {
             cout << "List is empty." << endl;
@@ -176,6 +185,7 @@ public:
         }
 
         Node* temp = tail;
+        
         if (tail->prev) {
             tail = tail->prev;
             tail->next = nullptr;
@@ -185,6 +195,7 @@ public:
         delete temp;
     }
 
+    // Destructor to clean up the list when it's no longer needed.
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
@@ -193,8 +204,10 @@ public:
         }
     }
 
+    // method to print list
     void print() {
         Node* current = head;
+        
         if (!current) {
             cout << "List is empty." << endl;
             return;
@@ -206,6 +219,7 @@ public:
         cout << endl;
     }
 
+    // Method to print the list in reverse order.
     void print_reverse() {
         Node* current = tail;
         if (!current) {
@@ -216,8 +230,16 @@ public:
             cout << current->data << " ";
             current = current->prev;
         }
+        
         cout << endl;
     }
+
+    // method to print every other element of the list.
+    void every_other_element() {
+        Node* current =
+
+    }
+
 };
 
 int main() {
