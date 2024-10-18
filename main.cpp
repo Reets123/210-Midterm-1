@@ -254,7 +254,23 @@ public:
 
 // main function
 int main() {
-    
-    
+    // Create a new doubly linked list instance.
+    DoublyLinkedList list;
+
+    // Push some values onto the list.
+    list.push_back(1); // Add 1 through 5 to the back of the list.
+    list.push_back(2); 
+    list.push_back(3); 
+    list.push_back(4); 
+    list.push_back(5); 
+
+    // Print the original list.
+    cout << "Original List: ";
+    list.print(); // Call print function.
+
+    // Print every other element.
+    cout << "Every other element: ";
+    list.every_other_element(); // Call new method to print every other element.
+     
     return 0;
 }
